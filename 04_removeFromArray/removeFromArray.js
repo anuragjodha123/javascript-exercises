@@ -1,9 +1,7 @@
-const removeFromArray = function() {
-  let inputArguments = [...arguments];
-  let inputArr = [...arguments[0]];
-  inputArguments.shift();
+const removeFromArray = function(array, ...args) {
+  let inputArr = [...array];
 
-  for (const elementToRemove of inputArguments) {
+  for (const elementToRemove of args) {
     let i = 0;
     for (i = 0; i < inputArr.length; i++) {
       if (inputArr[i] === elementToRemove) {
