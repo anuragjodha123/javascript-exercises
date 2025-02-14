@@ -1,17 +1,14 @@
 const sumAll = function(firstInt, lastInt) {
   // use the sum of a sequence formula
   // S = n/2 (1st term + last term)
-  if (typeof(firstInt) == "number" && typeof(lastInt) == "number" 
-      && parseInt(firstInt) === firstInt && parseInt(lastInt) === lastInt
-      && firstInt*lastInt >= 0) 
-  {
-    let numberOfInts = (lastInt > firstInt) ? (lastInt - firstInt) + 1 : (firstInt - lastInt) + 1; 
-    let sumOfInts = (numberOfInts/2)*(firstInt + lastInt);
-    return sumOfInts;
-  } else {
-    return "ERROR";
-  }
+  if (!Number.isInteger(firstInt) || !Number.isInteger(lastInt)) return "ERROR";
+  if (firstInt < 0 || lastInt < 0) return "ERROR";
 
+  let numberOfInts = (lastInt > firstInt) ? (lastInt - firstInt) + 1 : (firstInt - lastInt) + 1; 
+  let sumOfInts = (numberOfInts/2)*(firstInt + lastInt);
+  return sumOfInts;
+
+// Note: (after seeing the official solution) my code is too messy, isn't very readable
 };
 
 // Do not edit below this line
